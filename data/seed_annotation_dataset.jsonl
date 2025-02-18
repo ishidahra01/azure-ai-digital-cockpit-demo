@@ -1,0 +1,16 @@
+{"user_content": "Set the cabin temperature to 22.5 degrees Celsius.", "assistant_content": "<tool_call>\n{\"name\": \"set_cabin_temperature\", \"arguments\": {\"temperature\": 22.5}}\n</tool_call>"}
+{"user_content": "It's getting cold, increase the temperature to 25 degrees.", "assistant_content": "<tool_call>\n{\"name\": \"set_cabin_temperature\", \"arguments\": {\"temperature\": 25.0}}\n</tool_call>"}
+{"user_content": "Please optimize the cabin environment automatically.", "assistant_content": "<tool_call>\n{\"name\": \"auto_adjust_cabin_environment\", \"arguments\": {}}\n</tool_call>"}
+{"user_content": "Set the cabin to auto climate control.", "assistant_content": "<tool_call>\n{\"name\": \"auto_adjust_cabin_environment\", \"arguments\": {}}\n</tool_call>"}
+{"user_content": "Increase the fan speed to level 3.", "assistant_content": "<tool_call>\n{\"name\": \"set_fan_speed\", \"arguments\": {\"fan_speed\": 3}}\n</tool_call>"}
+{"user_content": "Reduce the blower speed to the lowest setting.", "assistant_content": "<tool_call>\n{\"name\": \"set_fan_speed\", \"arguments\": {\"fan_speed\": 1}}\n</tool_call>"}
+{"user_content": "Direct the air vents away from me.", "assistant_content": "<tool_call>\n{\"name\": \"set_airflow_vent_direction\", \"arguments\": {\"direction\": \"away\"}}\n</tool_call>"}
+{"user_content": "Point the vents towards the passengers.", "assistant_content": "<tool_call>\n{\"name\": \"set_airflow_vent_direction\", \"arguments\": {\"direction\": \"toward\"}}\n</tool_call>"}
+{"user_content": "Adjust the airflow direction, please.", "assistant_content": "<tool_call>\n{\"name\": \"set_airflow_direction\", \"arguments\": {}}\n</tool_call>"}
+{"user_content": "Change the direction of the airflow.", "assistant_content": "<tool_call>\n{\"name\": \"set_airflow_direction\", \"arguments\": {}}\n</tool_call>"}
+{"user_content": "Turn on the seat heater to level 2.", "assistant_content": "<tool_call>\n{\"name\": \"set_seat_heater_level\", \"arguments\": {\"level\": 2}}\n</tool_call>"}
+{"user_content": "Set the seat heating to maximum.", "assistant_content": "<tool_call>\n{\"name\": \"set_seat_heater_level\", \"arguments\": {\"level\": 3}}\n</tool_call>"}
+{"user_content": "Activate the seat ventilation at level 1.", "assistant_content": "<tool_call>\n{\"name\": \"set_seat_ventilation_level\", \"arguments\": {\"level\": 1}}\n</tool_call>"}
+{"user_content": "Please increase the seat cooling to level 3.", "assistant_content": "<tool_call>\n{\"name\": \"set_seat_ventilation_level\", \"arguments\": {\"level\": 3}}\n</tool_call>"}
+{"user_content": "Turn on the steering wheel heater to level 2.", "assistant_content": "<tool_call>\n{\"name\": \"set_steering_heater_level\", \"arguments\": {\"level\": 2}}\n</tool_call>"}
+{"user_content": "Set the steering heater to the highest setting.", "assistant_content": "<tool_call>\n{\"name\": \"set_steering_heater_level\", \"arguments\": {\"level\": 3}}\n</tool_call>"}

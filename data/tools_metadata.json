@@ -1,0 +1,110 @@
+[
+	{
+	  "type": "function",
+	  "function": {
+		"name": "set_cabin_temperature",
+		"description": "Set cabin temperature to specified degree.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"temperature": {
+			  "type": "number",
+			  "description": "Target temperature to be set in the cabin."
+			}
+		  },
+		  "required": ["temperature"],
+		  "additionalProperties": false
+		}
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "auto_adjust_cabin_environment",
+		"description": "Automatically adjust the cabin environment.",
+		"strict": true
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "set_fan_speed",
+		"description": "Set fan speed to specified level.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"fan_speed": {
+			  "type": "integer",
+			  "enum": [1, 2, 3, 4, 5],
+			  "description": "Fan speed level (1: Low, 5: High)."
+			}
+		  },
+		  "required": ["fan_speed"],
+		  "additionalProperties": false
+		}
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "set_seat_heater_level",
+		"description": "Set seat heater to specified level.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"level": {
+			  "type": "integer",
+			  "enum": [0, 1, 2, 3],
+			  "description": "Seat heater level (0: Off, 3: Max)."
+			}
+		  },
+		  "required": ["level"],
+		  "additionalProperties": false
+		}
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "set_seat_ventilation_level",
+		"description": "Set seat ventilation to specified level.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"level": {
+			  "type": "integer",
+			  "enum": [0, 1, 2, 3],
+			  "description": "Seat ventilation level (0: Off, 3: Max)."
+			}
+		  },
+		  "required": ["level"],
+		  "additionalProperties": false
+		}
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "set_steering_heater_level",
+		"description": "Set steering heater to specified level.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"level": {
+			  "type": "integer",
+			  "enum": [0, 1, 2],
+			  "description": "Steering heater level (0: Off, 2: Max)."
+			}
+		  },
+		  "required": ["level"],
+		  "additionalProperties": false
+		}
+	  }
+	}
+  ]
+  
