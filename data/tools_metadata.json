@@ -105,6 +105,67 @@
 		  "additionalProperties": false
 		}
 	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "search_web",
+		"description": "Perform a web search with the specified query.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"query": {
+			  "type": "string",
+			  "description": "Search query string."
+			}
+		  },
+		  "required": ["query"],
+		  "additionalProperties": false
+		}
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "search_manual",
+		"description": "Search for instructions or solutions in the manual.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"query": {
+			  "type": "string",
+			  "description": "Query to search for in the manual."
+			}
+		  },
+		  "required": ["query"],
+		  "additionalProperties": false
+		}
+	  }
+	},
+	{
+	  "type": "function",
+	  "function": {
+		"name": "book_maintenance",
+		"description": "Book a maintenance appointment.",
+		"strict": true,
+		"parameters": {
+		  "type": "object",
+		  "properties": {
+			"datetime": {
+			  "type": "string",
+			  "description": "Desired date and time for the maintenance appointment."
+			},
+			"branch": {
+			  "type": "string",
+			  "description": "Branch for the maintenance appointment."
+			}
+		  },
+		  "required": ["datetime", "branch"],
+		  "additionalProperties": false
+		}
+	  }
 	}
   ]
   
