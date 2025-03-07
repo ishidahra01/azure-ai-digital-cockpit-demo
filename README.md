@@ -18,6 +18,7 @@ Before you begin, ensure that the following requirements are met:
   - Sufficient quota to create and start an **NVIDIA A100 GPU** node (e.g., Standard_NC24ads_A100_v4) in a compute cluster
 - Access to **Azure AI Foundry**
 - Phi3.5 **already deployed** in **Model Catalog**
+- Add `Storage Blob Data Contributor` to your Azure account
 
 ## Usage
 
@@ -34,6 +35,7 @@ Before you begin, ensure that the following requirements are met:
       ```bash
       conda activate azureml_py310_sdkv2
       pip install -r requirements.txt
+	  pip install flash-attn --no-build-isolation
       ```
    2. Use `SFT_Synthetic_Data.ipynb` to **generate synthetic training data** for fine-tuning.
    3. Use `SFT_FN_Calling_InCar_AzureML.ipynb` to **fine-tune** the model on Azure ML.
