@@ -2,6 +2,23 @@ import streamlit as st
 import json
 import os
 from dotenv import load_dotenv
+import re
+
+# ---- Utils ----
+def clean_json_text(text):
+    # ```json や ``` を取り除く
+    # ```json\n～``` の形式をマッチさせる
+    code_block_pattern = r"```(?:json)?\n(.*?)```"
+    
+    # 正規表現で中身だけ抽出
+    match = re.search(code_block_pattern, text, re.DOTALL)
+    if match:
+        return match.group(1).strip()  # 中身だけ返す
+
+    # コードブロックじゃなければそのまま返す
+    return text.strip()
+
+
 
 # ---- ここで環境変数をロードする例（必要に応じてカスタマイズ）----
 load_dotenv(override=True)
@@ -84,12 +101,40 @@ def call_temperature_control_agent(messages):
         st.error(f"Temperature Control Agent呼び出しでHTTPエラー: {e} {e.read().decode('utf-8')}")
         return ""
 
-st.title("車載環境デモアプリ (Streamlit)")
+# タイトル
+st.title("車載AIエージェント デモ")
 
+# 説明文
 st.write("""
-車両の状況データやユーザの好み、利用可能なAPI一覧などを入力すると、
-1) 環境認識エージェント → 2) 提案エージェント という流れで呼び出し、
-最終的にどのAPIをどう呼び出すかを決定・表示するサンプルです。
+このデモは、車両の状況やユーザーの好み、利用可能なAPI情報をもとに  
+エージェントが連携し、最適なアクションを決定・実行する流れを確認するものです。
+""")
+
+# 処理の流れ
+st.header("処理フロー")
+
+st.markdown("""
+### 1. 環境認識エージェント  
+- 車両情報（位置、速度、気象など）や  
+  ユーザー情報（好み、状態）を入力として受け取り、  
+  **現在のコンテキスト**を把握・整理します。
+
+### 2. 提案エージェント  
+- 認識されたコンテキストをもとに、  
+  ユーザーに対してどのようなアクションを提案すべきかを検討します。  
+- 利用可能なAPIの一覧と組み合わせて、  
+  **実行候補となるAPIアクション**を生成します。
+
+### 3. 処理エージェント  
+- 提案されたアクションの中から実行可能なものを選択し、  
+  実際のAPIコールとして構築・実行します。  
+- 最終的に、**どのAPIをどのパラメータで呼び出すか**を決定し、  
+  実行結果を表示します。
+""")
+
+# 補足説明
+st.write("""
+左のメニューから入力データを変更し、異なる状況に応じたエージェントの判断を試すことができます。
 """)
 
 # --- デフォルト例 JSON ---
@@ -295,6 +340,7 @@ if st.sidebar.button("送信"):
     env_agent_system_message = """\
 You are an Environmental Recognition Agent.
 Based on the data collected from the car's sensors, generate JSON-format data that represents the current state of the vehicle and driver.
+You MUST output ONLY the JSON OUTPUT. You MUST NOT include any other additional comment, text, code block.
 """
 
     env_agent_user_message = f"""\
@@ -317,6 +363,7 @@ Based on the data collected from the car's sensors, generate JSON-format data th
                 ],
             )
             env_result_text = env_agent_response.choices[0].message.content
+            env_result_text = clean_json_text(env_result_text)
             st.subheader("① 環境認識エージェントの出力")
             st.code(env_result_text, language="json")
         except Exception as e:
@@ -330,7 +377,7 @@ Based on the data collected from the car's sensors, generate JSON-format data th
 You are an agent tasked with leveraging in-car systems to provide an optimal and comfortable environment for the user.
 Based on the current state, user preferences, and available action agents, suggest an ideal comfortable state.
 Then, determine the appropriate agent and the instructions needed to achieve the ideal state.
-You MUST output ONLY the json as shown in the output example. You MUST NOT include any other additional comment or text.
+You MUST output ONLY the JSON OUTPUT as shown in the output example. You MUST NOT include any other additional comment, text, code block.
 """
 
     output_example = {
@@ -372,6 +419,7 @@ You MUST output ONLY the json as shown in the output example. You MUST NOT inclu
                 ],
             )
             proposal_result_text = proposal_agent_response.choices[0].message.content
+            proposal_result_text = clean_json_text(proposal_result_text)
             st.subheader("② 提案エージェントの出力")
             st.code(proposal_result_text, language="json")
         except Exception as e:

@@ -52,6 +52,10 @@ Before you begin, ensure that the following requirements are met:
      streamlit run src/02_agent-workflow/02_demo_app.py
      ```
 
+6. **[Option]Run the Agent Workflow with Autogen**:
+   - Refer to `src/02_agent-workflow/02_agent_get_started.ipynb` for the initial workflow code.
+   - This notebook can be run locally (e.g., in VSCode) or on Azure ML.
+
 ## Contributing
 
 Contributions are welcome! Whether it’s reporting bugs, suggesting new features, or submitting pull requests, please feel free to get involved.
