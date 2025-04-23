@@ -1,7 +1,7 @@
 config:
-    AZURE_SUBSCRIPTION_ID: "f6ce1e2a-5984-4caf-a25c-b84249640c08" # Please modify to your subscription
-    AZURE_RESOURCE_GROUP: "aml-automl-handson" # Please modify to your Azure resource group
-    AZURE_WORKSPACE: "aml-automl-handson-aml" # Please modify to your Azure workspace
+    AZURE_SUBSCRIPTION_ID: "<REPLACE_YOUR_VALUE>" # Please modify to your subscription
+    AZURE_RESOURCE_GROUP: "<REPLACE_YOUR_VALUE>" # Please modify to your Azure resource group
+    AZURE_WORKSPACE: "<REPLACE_YOUR_VALUE>" # Please modify to your Azure workspace
     AZURE_DATA_NAME: "in-car-copilot-fn-temperature-data" # Please modify to your AzureML data name
     DATA_DIR: "./dataset"
     CLOUD_DIR: "./cloud"
